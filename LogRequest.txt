@@ -1,0 +1,35 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $logData = file_get_contents('php://input');
+
+    // Faz o processamento dos dados recebidos
+    $logArray = explode("\n", $logData);
+    $csvContent = "Player,Questao,RespostaCorreta,RespostaPlayer\n";
+    foreach ($logArray as $log) {
+
+        // Separa as informações do log
+        $logInfo = explode(",", $log);
+
+        // Acessa os dados individuais
+        $player = $logInfo[0];
+        $questao = $logInfo[1];
+        $respostaCorreta = $logInfo[2];
+        $respostaPlayer = $logInfo[3];
+
+        // Adiciona os dados ao conteúdo CSV
+        $csvContent .= "$player,$questao,$respostaCorreta,$respostaPlayer\n";
+    }
+
+    // Cria o arquivo CSV
+    $filename = "dataTrilha.csv";
+    file_put_contents($filename, $csvContent);
+
+    // Exemplo de resposta para o Unity
+    $response = array('status' => 'success', 'message' => 'Log received and CSV file created');
+    echo json_encode($response);
+} else {
+    header('HTTP/1.1 405 Method Not Allowed');
+    header('Allow: POST');
+    echo 'This endpoint only accepts POST requests.';
+}
+?>
