@@ -10,7 +10,7 @@ public class LogCardAnswer : MonoBehaviour
     public GameObject cardObject;
     public LogCardData cardData;
     public List_GameManager LGM;
-
+   
     private MeshRenderer cardRenderer;
     private Color originalColor;
 
@@ -21,6 +21,7 @@ public class LogCardAnswer : MonoBehaviour
     
     private void Start()
     {
+        
         LGM = FindObjectOfType<List_GameManager>();
         if (LGM == null)
         {
@@ -45,6 +46,7 @@ public class LogCardAnswer : MonoBehaviour
 
         if (cardData.correctAnswer == gameObject.name)
         {
+            UpdateCoins(1);
             StartCoroutine(ChangeColorAndDisappear(cardRenderer, correctColor, delayTime));
         }
         else
@@ -61,4 +63,21 @@ public class LogCardAnswer : MonoBehaviour
         yield return new WaitForSeconds(delay);
         renderer.material.color = originalColor;
     }
+  
+        private void UpdateCoins(int amount)
+    {
+        GameObject[] xrObjects = GameObject.FindGameObjectsWithTag("xr");
+
+        foreach (GameObject xrObject in xrObjects)
+        {
+            PontuacaoCastanhas pontuacaoScript = xrObject.GetComponent<PontuacaoCastanhas>();
+            if (pontuacaoScript != null)
+            {
+                pontuacaoScript.coins += amount;
+                Debug.Log(pontuacaoScript.coins);
+                pontuacaoScript.UpdateCoins();
+            }
+        }
+    }
+
 }

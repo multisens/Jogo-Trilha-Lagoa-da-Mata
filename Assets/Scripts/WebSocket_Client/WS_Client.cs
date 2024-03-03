@@ -1,14 +1,70 @@
-using WebSocketSharp;
+/*using WebSocketSharp;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class WS_Client : MonoBehaviour
 {
-    static WS_Client instance; // Instancia o singleton
+
+    public GameObject CanvaPlayerName;
+    public GameObject CanvaInic;
+    public GameObject Canvacontroll;
+    private List<string> playersInRoom = new List<string>();
+
+    public GameObject playerTextPrefab;
+    public Transform playerTextParent;
+
+    public void WaitRoom()
+    {
+
+        Debug.Log("RoomCreated: ");
+        CanvaPlayerName.SetActive(true);
+        CanvaInic.SetActive(false);
+        Canvacontroll.SetActive(false);
+    }
+
+
+    public void Update()
+    {
+
+        UpdatePlayerNamesUI();
+    }
+
+
+    private void UpdatePlayerNamesUI()
+    {
+        foreach (Transform child in playerTextParent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (string playerName in playersInRoom)
+        {
+            GameObject playerTextInstance = Instantiate(playerTextPrefab, playerTextParent);
+
+            TextMeshProUGUI textMesh = playerTextInstance.GetComponent<TextMeshProUGUI>();
+            textMesh.text = playerName;
+        }
+    }
+
+
+*/
+
+
+
+using WebSocketSharp;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class WS_Client : MonoBehaviour
+{
     private WebSocket ws;
-    public int scene_int;
+    public int sceneIndexToLoad = 1;
+    static WS_Client instance;
+
+
     public WebSocket WebSocketInstance
     {
         get { return ws; }
@@ -19,36 +75,33 @@ public class WS_Client : MonoBehaviour
         get { return instance; }
     }
 
+
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject); // Mantem o objeto durante as trocas de cena
-
-        ws = new WebSocket("ws://localhost:8080");
+        DontDestroyOnLoad(this.gameObject);
+        ws = new WebSocket("ws://192.168.0.213:7760");
         ws.OnMessage += (sender, e) =>
         {
-            HandleMessage(e.Data); // Chama a função para tratar a mensagem
+            HandleMessage(e.Data);
             Debug.Log("Mensagem recebida de: " + ((WebSocket)sender).Url + ", Data : " + e.Data);
         };
         ws.Connect();
-
     }
 
     private void HandleMessage(string data)
     {
-        // Analisa a mensagem do JSON
         Message message = JsonUtility.FromJson<Message>(data);
-
         if (message.action == "start_scene")
         {
             Debug.Log("loadscene now");
-            LoadA();
-        }
+            LoadScene();
+        }        
     }
 
-    public void LoadA()
+    public void LoadScene()
     {
-        Debug.Log("sceneName to load: " + scene_int);
-        SceneManager.LoadScene(scene_int);
+        Debug.Log("Scene index to load: " + sceneIndexToLoad);
+        SceneManager.LoadScene(sceneIndexToLoad);
     }
 
     private void OnDestroy()
@@ -59,9 +112,16 @@ public class WS_Client : MonoBehaviour
         }
     }
 
-    [System.Serializable]
-    public class Message
-    {
-        public string action;
-    }
+[System.Serializable]
+public class Message
+{
+    public string action;
+    public string name; 
+    public string room;
 }
+
+}
+
+
+
+
