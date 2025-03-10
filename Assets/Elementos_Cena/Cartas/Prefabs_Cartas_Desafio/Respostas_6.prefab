@@ -190,7 +190,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 1029803221698299512}
+  cardData: {fileID: 0}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 9044152994057978140}
+  RESP2: {fileID: 6934708893239811315}
 --- !u!54 &5372891187718270229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -392,7 +406,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 1029803221698299512}
+  cardData: {fileID: 0}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 9044152994057978140}
+  RESP2: {fileID: 2574389499835582775}
 --- !u!54 &7047497719485150248
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -594,7 +622,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 1029803221698299512}
+  cardData: {fileID: 0}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 6934708893239811315}
+  RESP2: {fileID: 2574389499835582775}
 --- !u!54 &6485231077713209897
 Rigidbody:
   m_ObjectHideFlags: 0

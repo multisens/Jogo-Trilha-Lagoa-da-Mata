@@ -60,12 +60,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 8730555678990013061}
   cardData: {fileID: 0}
-  LGM: {fileID: 0}
-  delayTime: 3
   correctColor: {r: 0, g: 1, b: 0, a: 1}
   incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 2036806273895934189}
+  RESP2: {fileID: 7395819260757595664}
 --- !u!54 &8718100422314613689
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -267,12 +276,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 8730555678990013061}
   cardData: {fileID: 0}
-  LGM: {fileID: 0}
-  delayTime: 3
   correctColor: {r: 0, g: 1, b: 0, a: 1}
   incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 76341137525517979}
+  RESP2: {fileID: 7395819260757595664}
 --- !u!54 &361962311155029419
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -474,12 +492,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 8730555678990013061}
   cardData: {fileID: 0}
-  LGM: {fileID: 0}
-  delayTime: 3
   correctColor: {r: 0, g: 1, b: 0, a: 1}
   incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 2036806273895934189}
+  RESP2: {fileID: 76341137525517979}
 --- !u!54 &4506762839804333039
 Rigidbody:
   m_ObjectHideFlags: 0

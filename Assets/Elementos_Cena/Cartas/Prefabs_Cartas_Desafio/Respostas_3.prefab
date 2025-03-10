@@ -331,9 +331,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 876633582337261344}
   cardData: {fileID: 0}
-  LGM: {fileID: 0}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 5333446893877717270}
+  RESP2: {fileID: 7241723273619015866}
 --- !u!1 &5333446893877717270
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,9 +547,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 876633582337261344}
   cardData: {fileID: 0}
-  LGM: {fileID: 0}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 2420251145871900729}
+  RESP2: {fileID: 7241723273619015866}
 --- !u!1 &7241723273619015866
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +763,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 876633582337261344}
   cardData: {fileID: 1857215954749168956}
-  LGM: {fileID: 0}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 5333446893877717270}
+  RESP2: {fileID: 2420251145871900729}

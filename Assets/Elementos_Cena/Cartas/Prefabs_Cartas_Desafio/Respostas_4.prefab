@@ -201,7 +201,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 5420264376375812263}
+  cardData: {fileID: 0}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 4146691549559410485}
+  RESP2: {fileID: 2940435284690724490}
 --- !u!1 &2940435284690724490
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +417,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 5420264376375812263}
+  cardData: {fileID: 0}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 4146691549559410485}
+  RESP2: {fileID: 433409232627722799}
 --- !u!1 &4146691549559410485
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +633,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b157f8f7b644a41a09fbc8762bfb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
+  wsGameObject: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
   cardObject: {fileID: 5420264376375812263}
+  cardData: {fileID: 0}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  delayTime: 3
+  RESP1: {fileID: 2940435284690724490}
+  RESP2: {fileID: 433409232627722799}
 --- !u!1 &5420264376375812263
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,13 @@ TagManager:
   - peao
   - mao
   - opcao
+  - xr
+  - alt_door
+  - openDoor
+  - RoomLight
+  - SamplesInfoPanel
+  - canva
+  - CSVManager
   layers:
   - Default
   - TransparentFX
@@ -18,9 +25,9 @@ TagManager:
   - peao
   - casas_mapa
   - mao
-  - 
-  - 
-  - 
+  - alt_door
+  - opendoor
+  - canva
   - 
   - 
   - 
@@ -41,6 +48,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: canva
+    uniqueID: 3862220965
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

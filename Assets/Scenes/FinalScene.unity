@@ -1192,7 +1192,7 @@ MonoBehaviour:
   m_Camera: {fileID: 1365927362}
   m_OriginBaseGameObject: {fileID: 112535140}
   m_CameraFloorOffsetObject: {fileID: 1010698226}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 2
   m_CameraYOffset: 1.1176
 --- !u!1 &201526012
 GameObject:
@@ -1543,11 +1543,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386fa2563bd3ad14d8065693c29233cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
   wsGameObject: {fileID: 1649772831}
-  Input_Text_Name: {fileID: 0}
-  Input_Text_N_Sala: {fileID: 0}
-  Canvas: {fileID: 0}
-  CanvasCreated: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
 --- !u!1 &482674200
 GameObject:
   m_ObjectHideFlags: 0
@@ -5337,7 +5340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5370,6 +5373,10 @@ PrefabInstance:
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: _trackingOriginType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
@@ -5664,9 +5671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d95ec5930174b44962584f1b39ff6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene_int: 1
-  Canva: {fileID: 2142629750}
-  CanvaInic: {fileID: 0}
+  sceneIndexToLoad: 1
+  playerNamesPrefab: {fileID: 0}
+  namesParent: {fileID: 0}
 --- !u!1 &1679937623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
@@ -6330,11 +6337,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386fa2563bd3ad14d8065693c29233cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wsClient: {fileID: 0}
+  inputTextName: {fileID: 0}
+  inputTextRoom: {fileID: 0}
+  canvasActive: {fileID: 0}
+  canvasInactive: {fileID: 0}
   wsGameObject: {fileID: 1649772831}
-  Input_Text_Name: {fileID: 0}
-  Input_Text_N_Sala: {fileID: 0}
-  Canvas: {fileID: 0}
-  CanvasCreated: {fileID: 0}
+  startButton: {fileID: 0}
+  waitMessageText: {fileID: 0}
 --- !u!1 &1802553651
 GameObject:
   m_ObjectHideFlags: 0
@@ -7345,21 +7355,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1789597856}
-        m_TargetAssemblyTypeName: SendData, Assembly-CSharp
-        m_MethodName: OnClickSend
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1649772833}
         m_TargetAssemblyTypeName: WS_Client, Assembly-CSharp
-        m_MethodName: LoadA
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

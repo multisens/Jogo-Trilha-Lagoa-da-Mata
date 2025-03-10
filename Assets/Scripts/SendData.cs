@@ -1,30 +1,19 @@
-/*using WebSocketSharp;
+
+using System.IO;
+using WebSocketSharp;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
-
+using System.Collections.Generic;
 public class SendData : MonoBehaviour
 {
-    public Button startButton;
-    public TextMeshProUGUI waitMessageText;
 
-
-*/
-
-
-
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-
-public class SendData : MonoBehaviour
-{   
-    
     public WS_Client wsClient;
     public TMP_InputField inputTextName;
     public TMP_InputField inputTextRoom;
-    public GameObject canvas;
-    public GameObject canvasCreated;
+    public GameObject canvasActive;
+    public GameObject canvasInactive;
     public GameObject wsGameObject;
 
     public Button startButton;
@@ -56,7 +45,7 @@ public class SendData : MonoBehaviour
     public void OnStartScene()
     {
         string name = inputTextName.text;
-        string room = inputTextRoom.text;
+        string room = 1.ToString();
 
         Debug.Log("Name: " + name);
         Debug.Log("Room Number: " + room);
@@ -72,20 +61,42 @@ public class SendData : MonoBehaviour
         wsClient.WebSocketInstance.Send(jsonData);
         Debug.Log("Mensagem enviada para mudar de cena: " + jsonData);
 
-                // Desativa o botão de iniciar e mostra a mensagem de espera
+        // Desativa o botão de iniciar e mostra a mensagem de espera
         startButton.interactable = false;
         waitMessageText.gameObject.SetActive(true);
 
     }
 
+    private void SavePlayerData(string name)
+    {
+        PlayerDataInfo playerData = new PlayerDataInfo { name = name };
+
+        List<PlayerDataInfo> newData = new List<PlayerDataInfo> { playerData };
+        PlayerDataList dataList = new PlayerDataList { players = newData };
+
+        string fileName = "playerName.json";
+        string path = Application.persistentDataPath + "/" + fileName;
+
+        string json = JsonUtility.ToJson(dataList, true);
+
+        string content = json;
+
+        File.WriteAllText(path, content);
+
+        Debug.Log($"Dados do jogador salvos em: {path}");
+        Debug.Log($"Conteúdo salvo: {json}");
+    }
+
+
     public void OnConnect()
     {
         string name = inputTextName.text;
-        string room = inputTextRoom.text;
+        string room = 1.ToString();
 
         Debug.Log("Name: " + name);
         Debug.Log("Room Number: " + room);
-
+        // Salvar nome e sala no arquivo JSON
+        SavePlayerData(name);
         WS_Client.Message message = new WS_Client.Message
         {
             action = "connect",
@@ -101,7 +112,7 @@ public class SendData : MonoBehaviour
     public void CreateRoom()
     {
         string name = inputTextName.text;
-        string room = inputTextRoom.text;
+        string room = 1.ToString();
 
         Debug.Log("Name: " + name);
         Debug.Log("Room Number: " + room);
@@ -119,38 +130,50 @@ public class SendData : MonoBehaviour
     }
 
     public void ChangeCanvasToCreated()
-    { 
-        canvas.SetActive(false);                     
-        canvasCreated.SetActive(true);
+    {
+        canvasActive.SetActive(true);
+        canvasInactive.SetActive(false);
     }
+
+
     public void exitGame()
     {
         Application.Quit();
     }
 
-        public void AllPlayersReady()
+
+    public void AllPlayersReady()
     {
         allPlayersReady = true;
-        // Verifica se todos os jogadores estão prontos
-        // Se sim, carrega a cena
+
         if (allPlayersReady)
         {
             OnStartScene();
         }
         else
         {
-            // Se não, mostra uma mensagem de espera
             waitMessageText.gameObject.SetActive(true);
         }
     }
 
+    [System.Serializable]
+    public class PlayerDataList
+    {
+        public List<PlayerDataInfo> players;
+    }
 
     [System.Serializable]
-public class Message
-{
-    public string action;
-    public string name; // Adicionei essa propriedade para representar o nome do jogador, como visto em algumas mensagens.
-    public string room; // Adicionei essa propriedade para representar o número da sala, como visto em algumas mensagens.
-}
+    public class PlayerDataInfo
+    {
+        public string name;
+    }
+
+    [System.Serializable]
+    public class Message
+    {
+        public string action;
+        public string name; // Adicionei essa propriedade para representar o nome do jogador, como visto em algumas mensagens.
+        public string room; // Adicionei essa propriedade para representar o número da sala, como visto em algumas mensagens.
+    }
 
 }
