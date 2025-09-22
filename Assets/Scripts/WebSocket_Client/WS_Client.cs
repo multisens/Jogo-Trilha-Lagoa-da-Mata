@@ -34,7 +34,8 @@ public class WS_Client : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         dataFilePath = Application.persistentDataPath + "/playerName.json";
 
-        ws = new WebSocket("ws://10.101.0.154:7760");
+        ws = new WebSocket("ws://cursa.eic.cefet-rj.br:8081");
+        // ws = new WebSocket("ws://10.101.0.154:7760");
         // ws = new WebSocket("ws://192.168.1.3:7760");
         ws.OnMessage += (sender, e) =>
         {
