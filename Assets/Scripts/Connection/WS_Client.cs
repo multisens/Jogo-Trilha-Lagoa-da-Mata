@@ -28,23 +28,33 @@ public class WS_Client : MonoBehaviour
 
     private string dataFilePath;
 
+    public bool serverConnection = false;
+
     void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         dataFilePath = Application.persistentDataPath + "/playerName.json";
 
-        ws = new WebSocket("ws://cursa.eic.cefet-rj.br:8081");
-        // ws = new WebSocket("ws://10.101.0.154:7760");
-        // ws = new WebSocket("ws://192.168.1.3:7760");
-        ws.OnMessage += (sender, e) =>
+        if (serverConnection)
         {
-            HandleMessage(e.Data);
-            Debug.Log("Mensagem recebida de: " + ((WebSocket)sender).Url + ", Data : " + e.Data);
-        };
-        ws.ConnectAsync();
-                    
 
+            ws = new WebSocket("ws://cursa.eic.cefet-rj.br:8081");
+            // ws = new WebSocket("ws://10.101.0.154:7760");
+            // ws = new WebSocket("ws://192.168.1.3:7760");
+            ws.OnMessage += (sender, e) =>
+            {
+                HandleMessage(e.Data);
+                Debug.Log("Mensagem recebida de: " + ((WebSocket)sender).Url + ", Data : " + e.Data);
+            };
+            ws.ConnectAsync();
+
+        }
+        else
+        {
+            Debug.Log("Conexão com o servidor desativada nesta sessão.");
+        }
+                    
     }
 
     public void UpdatePlayerList(List<string> playerNames)
@@ -88,6 +98,12 @@ public class WS_Client : MonoBehaviour
     {
         Debug.Log("Scene index to load: " + sceneIndexToLoad);
         SceneManager.LoadScene(sceneIndexToLoad);
+    }
+
+    public void LoadScene(int index)
+    {
+        Debug.Log("Scene index to load: " + index);
+        SceneManager.LoadScene(index);
     }
 
     private void OnDestroy()

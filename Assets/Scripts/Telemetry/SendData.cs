@@ -21,7 +21,7 @@ public class SendData : MonoBehaviour
 
     private bool allPlayersReady = false;
 
-
+    public bool serverConnection = false;
 
     void Start()
     {
@@ -50,16 +50,21 @@ public class SendData : MonoBehaviour
         Debug.Log("Name: " + name);
         Debug.Log("Room Number: " + room);
 
-        WS_Client.Message message = new WS_Client.Message
+        if (serverConnection)
         {
-            action = "start",
-            name = name,
-            room = room
-        };
 
-        string jsonData = JsonUtility.ToJson(message);
-        wsClient.WebSocketInstance.Send(jsonData);
-        Debug.Log("Mensagem enviada para mudar de cena: " + jsonData);
+            WS_Client.Message message = new WS_Client.Message
+            {
+                action = "start",
+                name = name,
+                room = room
+            };
+
+            string jsonData = JsonUtility.ToJson(message);
+            wsClient.WebSocketInstance.Send(jsonData);
+            Debug.Log("Mensagem enviada para mudar de cena: " + jsonData);
+
+        }
 
         // Desativa o botão de iniciar e mostra a mensagem de espera
         startButton.interactable = false;
@@ -97,16 +102,28 @@ public class SendData : MonoBehaviour
         Debug.Log("Room Number: " + room);
         // Salvar nome e sala no arquivo JSON
         SavePlayerData(name);
-        WS_Client.Message message = new WS_Client.Message
-        {
-            action = "connect",
-            name = name,
-            room = room
-        };
 
-        string jsonData = JsonUtility.ToJson(message);
-        wsClient.WebSocketInstance.Send(jsonData);
-        Debug.Log("Mensagem enviada para mudar de cena: " + jsonData);
+        if (serverConnection)
+        {
+
+            WS_Client.Message message = new WS_Client.Message
+            {
+                action = "connect",
+                name = name,
+                room = room
+            };
+
+            string jsonData = JsonUtility.ToJson(message);
+            wsClient.WebSocketInstance.Send(jsonData);
+            Debug.Log("Mensagem enviada para mudar de cena: " + jsonData);
+
+        }
+        else
+        {
+            Debug.LogWarning("Conexão com o servidor não está ativa.");
+            wsClient.LoadScene(1); // carrega a cena 1 diretamente
+        }
+
     }
 
     public void CreateRoom()

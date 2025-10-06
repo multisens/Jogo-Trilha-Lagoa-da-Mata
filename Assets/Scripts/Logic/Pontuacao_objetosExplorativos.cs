@@ -40,6 +40,8 @@ public class Pontuacao_objetosExplorativos : PontuacaoCastanhas
     public string nomePlayer;
     private string dataFilePath;
 
+    public bool serverConnection = false;
+
     void Awake()
     {
         dataFilePath = Application.persistentDataPath + "/playerName.json";
@@ -58,21 +60,25 @@ public class Pontuacao_objetosExplorativos : PontuacaoCastanhas
     
     public void sendMessagePoint(string name, string points)
     { 
-        WS_Client.Message message = new WS_Client.Message
+
+        if (serverConnection)
         {
-            action = "csvpoints",
-            data = new List<WS_Client.PlayerData> // Lista de dados do jogador
+            WS_Client.Message message = new WS_Client.Message
             {
-                new WS_Client.PlayerData { name = name, points = points }
-            }
+                action = "csvpoints",
+                data = new List<WS_Client.PlayerData> // Lista de dados do jogador
+                {
+                    new WS_Client.PlayerData { name = name, points = points }
+                }
 
-        };
+            };
 
-        string jsonData = JsonUtility.ToJson(message);
+            string jsonData = JsonUtility.ToJson(message);
 
- 
-        WS_Client.instance.WebSocketInstance.Send(jsonData);
-        Debug.Log("Mensagem enviada para gerar csv dos pontos: " + jsonData);
+            WS_Client.instance.WebSocketInstance.Send(jsonData);
+            Debug.Log("Mensagem enviada para gerar csv dos pontos: " + jsonData);
+        }
+    
     }
 
 

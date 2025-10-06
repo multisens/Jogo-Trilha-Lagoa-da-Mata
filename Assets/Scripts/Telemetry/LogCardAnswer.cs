@@ -28,21 +28,27 @@ public class LogCardAnswer : SendData
 
     public void sendMessagePoint(string name, string answers)
     { 
-        WS_Client.Message message = new WS_Client.Message
+
+        if (serverConnection)
         {
-            action = "cardanswer",
-            dataAnswer = new List<WS_Client.CardAnswer> // Lista de dados do jogador
+
+            WS_Client.Message message = new WS_Client.Message
             {
-                new WS_Client.CardAnswer { name = name, answers = answers }
-            }
+                action = "cardanswer",
+                dataAnswer = new List<WS_Client.CardAnswer> // Lista de dados do jogador
+                {
+                    new WS_Client.CardAnswer { name = name, answers = answers }
+                }
 
-        };
+            };
 
-        string jsonData = JsonUtility.ToJson(message);
+            string jsonData = JsonUtility.ToJson(message);
+    
+            WS_Client.instance.WebSocketInstance.Send(jsonData);
+            Debug.Log("Mensagem enviada para gerar csv das respostas: " + jsonData);
 
- 
-        WS_Client.instance.WebSocketInstance.Send(jsonData);
-        Debug.Log("Mensagem enviada para gerar csv das respostas: " + jsonData);
+        }
+
     }
 
  private void SavePlayerData(string name)
