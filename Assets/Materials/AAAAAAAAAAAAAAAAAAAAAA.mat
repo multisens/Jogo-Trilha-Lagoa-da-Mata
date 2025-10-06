@@ -64,11 +64,11 @@ Material:
     - _Metallic0: 0
     - _Metallic1: 0.296
     - _Metallic2: 0.2
-    - _Metallic3: 0.2
+    - _Metallic3: 0
     - _NormalIntensity0: 1
     - _NormalIntensity1: 2
     - _NormalIntensity2: 4
-    - _NormalIntensity3: 1
+    - _NormalIntensity3: 0.5
     - _Smoothness0: 0
     - _Smoothness1: 0.058
     - _Smoothness2: 0

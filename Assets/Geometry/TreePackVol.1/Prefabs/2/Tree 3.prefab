@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 381
-  materialHash: e4de00cb99fcc1944583d5dc344762b958982400
+  materialHash: 27ae47c16748945e29e421f9a107a9c558982400
   root:
     _uniqueID: 1
     seed: 3426966
@@ -4290,4 +4290,4 @@ MonoBehaviour:
   mesh: {fileID: 43152671095240196}
   optimizedSolidMaterial: {fileID: 21141634165017130}
   optimizedCutoutMaterial: {fileID: 21670575571789092}
-  isInPreviewMode: 1
+  isInPreviewMode: 0
