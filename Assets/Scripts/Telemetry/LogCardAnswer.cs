@@ -139,21 +139,28 @@ public class LogCardAnswer : SendData
     }
     public void sendMessagePoints(string name, string points)
     { 
-        WS_Client.Message message = new WS_Client.Message
+    
+        if (serverConnection)
         {
-            action = "csvpoints",
-            data = new List<WS_Client.PlayerData> // Lista de dados do jogador
+            
+            WS_Client.Message message = new WS_Client.Message
             {
-                new WS_Client.PlayerData { name = name, points = points }
-            }
+                action = "csvpoints",
+                data = new List<WS_Client.PlayerData> // Lista de dados do jogador
+                {
+                    new WS_Client.PlayerData { name = name, points = points }
+                }
 
-        };
+            };
 
-        string jsonData = JsonUtility.ToJson(message);
+            string jsonData = JsonUtility.ToJson(message);
 
- 
-        WS_Client.instance.WebSocketInstance.Send(jsonData);
-        Debug.Log("Mensagem enviada para gerar csv dos pontos: " + jsonData);
+    
+            WS_Client.instance.WebSocketInstance.Send(jsonData);
+            Debug.Log("Mensagem enviada para gerar csv dos pontos: " + jsonData);
+
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
