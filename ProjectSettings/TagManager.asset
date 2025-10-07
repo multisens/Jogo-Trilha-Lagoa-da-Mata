@@ -3,32 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - peao
-  - mao
-  - opcao
-  - xr
-  - alt_door
-  - openDoor
-  - RoomLight
-  - SamplesInfoPanel
-  - canva
-  - CSVManager
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - opcao
+  - 
   - Water
   - UI
-  - ray
-  - peao
-  - casas_mapa
-  - mao
-  - alt_door
-  - opendoor
-  - canva
-  - PostProcessing
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -48,9 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: canva
-    uniqueID: 3862220965
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
