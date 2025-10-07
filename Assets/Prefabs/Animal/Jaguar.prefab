@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7540412507620623192
 Transform:
@@ -120,6 +120,7 @@ MonoBehaviour:
   Pos_PlacaObjetoExplor: {fileID: 8011433441423197978}
   PlacaObjetoExplor: {fileID: 8415370440993413073, guid: 5f603fc659c8786478b478bccb4dd260, type: 3}
   nomePlayer: 
+  serverConnection: 0
 --- !u!1 &8011433441423197979
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +135,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8011433441423197978
 Transform:

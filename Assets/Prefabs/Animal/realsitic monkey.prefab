@@ -69,6 +69,7 @@ MonoBehaviour:
   Pos_PlacaObjetoExplor: {fileID: 6490578706460367386}
   PlacaObjetoExplor: {fileID: 8415370440993413073, guid: 3067355a4565c2c4d919ee4b6a7d7a14, type: 3}
   nomePlayer: 
+  serverConnection: 0
 --- !u!1 &4399465306672126341
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +86,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7674846375425470922
 Transform:
